@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Admin Dashboard</h1>
+    <h2>All Registrations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Contact</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody id="registrationsTableBody">
+            <!-- Registration entries will be populated here -->
+        </tbody>
+    </table>
+
+    <h2>All Bookings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Landowner</th>
+                <th>Type</th>
+                <th>Details</th>
+                <th>Dates</th>
+            </tr>
+        </thead>
+        <tbody id="bookingsTableBody">
+            <!-- Booking entries will be populated here -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample data, replace with actual data fetching logic
+            var registrations = [
+                { id: 'LO123', name: 'John Doe', type: 'Landowner', contact: '1234567890', details: '10 acres, Wheat' },
+                { id: 'LAB456', name: 'Jane Smith', type: 'Laborer', contact: '0987654321', details: 'Harvesting' },
+                { id: 'MACH789', name: 'Bob Johnson', type: 'Machinery', contact: '1122334455', details: 'Tractor, Plow' }
+            ];
+            var bookings = [
+                { bookingId: 'B001', landowner: 'John Doe', type: 'Labor', details: '5 people', dates: '2024-06-15 to 2024-06-20' },
+                { bookingId: 'B002', landowner: 'John Doe', type: 'Machinery', details: 'Tractor', dates: '2024-07-01 to 2024-07-05' }
+            ];
+
+            var registrationsTableBody = document.getElementById('registrationsTableBody');
+            registrations.forEach(function(registration) {
+                var row = document.createElement('tr');
+                row.innerHTML = '<td>' + registration.id + '</td>' +
+                                '<td>' + registration.name + '</td>' +
+                                '<td>' + registration.type + '</td>' +
+                                '<td>' + registration.contact + '</td>' +
+                                '<td>' + registration.details + '</td>';
+                registrationsTableBody.appendChild(row);
+            });
+
+            var bookingsTableBody = document.getElementById('bookingsTableBody');
+            bookings.forEach(function(booking) {
+                var row = document.createElement('tr');
+                row.innerHTML = '<td>' + booking.bookingId + '</td>' +
+                                '<td>' + booking.landowner + '</td>' +
+                                '<td>' + booking.type + '</td>' +
+                                '<td>' + booking.details + '</td>' +
+                                '<td>' + booking.dates + '</td>';
+                bookingsTableBody.appendChild(row);
+            });
+        });
+    </script> <br><br><br>
+  <button onclick="window.location.href = 'index.html';">log out</button>
+</body><br><br>
+ <footer>
+        &copy; 2024 Krishi Kaya
+    </footer>
+</html>
