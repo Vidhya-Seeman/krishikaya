@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laborer Confirmation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .confirmation { text-align: center; margin-top: 50px; }
+        h2 { color: #4CAF50; }
+        p { margin: 20px 0; }
+        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        .login-form { max-width: 300px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        .login-form label { display: block; margin-bottom: 10px; }
+        .login-form input[type="text"], .login-form input[type="password"] { width: 100%; padding: 10px; margin-bottom: 10px; }
+        .login-form input[type="submit"] { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="confirmation">
+        <h2>Hello <span id="laborerName"></span>!</h2>
+        <p>Thank you for registering with us.</p>
+        <p>Your registration is successful.</p>
+        <p>Your ID is: <span id="laborerID"></span></p>
+        
+        <button onclick="backToHome()">Back to Home</button>
+    </div>
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var laborerName = urlParams.get('name');
+        document.getElementById('laborerName').textContent = laborerName;
+
+        // Generate a random ID for the laborer (can be replaced with backend logic)
+        var laborerID = generateID();
+        document.getElementById('laborerID').textContent = laborerID;
+
+        function generateID() {
+            return 'LAB' + Math.floor(Math.random() * 10000);
+        }
+
+        function backToHome() {
+            window.location.href = 'index.html';
+        }
+
+        function login(event) {
+            event.preventDefault();
+            // Here you can handle the login functionality, such as verifying the user ID and password
+            // For demonstration purposes, we'll just redirect to index.html
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

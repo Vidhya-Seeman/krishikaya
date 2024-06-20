@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi Kaya - Booking Confirmed</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        header, footer { background-color: #4CAF50; color: white; text-align: center; padding: 1em; }
+        nav a { margin: 0 15px; text-decoration: none; color: white; }
+        .content { padding: 20px; text-align: center; }
+        .booking-info { padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; display: inline-block; }
+        a { color: #4CAF50; text-decoration: none; }
+    </style>
+    <script>
+        function getBookingID() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('bookingID');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('booking-id').textContent = getBookingID();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Booking Confirmed</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="landowner_registration.html">Landowner Registration</a>
+            <a href="laborer_registration.html">Laborer Registration</a>
+            <a href="machinery_registration.html">Machinery Registration</a>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="booking-info">
+            <h2>Your booking has been confirmed!</h2>
+            <p>Booking ID: <strong id="booking-id"></strong></p>
+            <a href="index.html">Back to Home</a>
+</div>
+</div>
+<footer>
+© 2024 Krishi Kaya
+</footer>
+
+</body>
+</html>
