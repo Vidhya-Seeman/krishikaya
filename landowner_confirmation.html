@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi Kaya - Registration Confirmation</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        header, footer { background-color: #4CAF50; color: white; text-align: center; padding: 1em; }
+        nav a { margin: 0 15px; text-decoration: none; color: white; }
+        .content { padding: 20px; text-align: center; }
+        .confirmation-info { padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; display: inline-block; }
+        a { color: #4CAF50; text-decoration: none; }
+    </style>
+    <script>
+        function getLandownerInfo() {
+            const name = localStorage.getItem('landownerName');
+            const id = localStorage.getItem('landownerID');
+            document.getElementById('landowner-name').textContent = name;
+            document.getElementById('landowner-id').textContent = id;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getLandownerInfo();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Registration Confirmation</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="landowner_registration.html">Landowner Registration</a>
+            <a href="laborer_registration.html">Laborer Registration</a>
+            <a href="machinery_registration.html">Machinery Registration</a>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="confirmation-info">
+            <h2>Hello, <span id="landowner-name"></span></h2>
+            <p>Your registration is successful.</p>
+            <p>Your Landowner ID: <strong id="landowner-id"></strong></p>
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Krishi Kaya
+    </footer>
+</body>
+</html>

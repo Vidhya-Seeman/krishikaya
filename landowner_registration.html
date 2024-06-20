@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi Kaya - Landowner Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        header, footer { background-color: #4CAF50; color: white; text-align: center; padding: 1em; }
+        nav a { margin: 0 15px; text-decoration: none; color: white; }
+        .content { padding: 20px; }
+        form { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; }
+        label { display: block; margin: 15px 0 5px; }
+        input[type="text"], input[type="number"], input[type="password"] { width: 100%; padding: 10px; margin-bottom: 10px; }
+        input[type="submit"] { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+    </style>
+    <script>
+        function generateLandownerID() {
+            return 'LO' + Math.floor(Math.random() * 100000);
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const contact = document.getElementById('contact').value;
+            const district = document.getElementById('district').value;
+            const acres = document.getElementById('acres').value;
+            const crops = document.getElementById('crops').value;
+            const password = document.getElementById('password').value;
+            const id = generateLandownerID();
+
+            // Store data (in reality, this would be sent to a server)
+            localStorage.setItem('landownerName', name);
+            localStorage.setItem('landownerAddress', address);
+            localStorage.setItem('landownerContact', contact);
+            localStorage.setItem('landownerDistrict', district);
+            localStorage.setItem('landownerAcres', acres);
+            localStorage.setItem('landownerCrops', crops);
+            localStorage.setItem('landownerPassword', password);
+            localStorage.setItem('landownerID', id);
+
+            window.location.href = 'landowner_confirmation.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Landowner Registration</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="laborer_registration.html">Laborer Registration</a>
+            <a href="machinery_registration.html">Machinery Registration</a>
+        </nav>
+    </header>
+    <div class="content">
+        <form onsubmit="handleSubmit(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="contact">Contact Number</label>
+            <input type="text" id="contact" name="contact" required>
+
+            <label for="district">District</label>
+            <input type="text" id="district" name="district" required>
+
+            <label for="acres">Number of Acres of Land</label>
+            <input type="number" id="acres" name="acres" required>
+
+            <label for="crops">Crops Grown</label>
+            <input type="text" id="crops" name="crops" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <footer>
+        &copy; 2024 Krishi Kaya
+    </footer>
+</body>
+</html>
