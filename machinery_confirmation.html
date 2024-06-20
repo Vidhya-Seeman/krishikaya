@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machinery Registration Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, <span id="ownerName"></span>!</h1>
+    <p>Thank you for registering your machinery.</p>
+    <p>Your registration is successful.</p>
+    <p>Your ID is: <span id="ownerID"></span></p>
+    <button onclick="backToHome()">Back to Home</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var ownerName = urlParams.get('name');
+            var ownerID = urlParams.get('id');
+            document.getElementById('ownerName').textContent = ownerName;
+            document.getElementById('ownerID').textContent = ownerID;
+        });
+
+        function backToHome() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
