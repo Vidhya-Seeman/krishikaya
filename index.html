@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<header>
+<style>
+
+
+
+           img {
+            width: auto;
+            height: auto;
+        }
+        /* Specific style for the image with the id "logo" */
+        #logo {
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Maintains the aspect ratio */
+        }
+#phone {
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Maintains the aspect ratio */
+        }
+#email {
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Maintains the aspect ratio */
+        }
+
+    </style>
+        <img id="logo" img src="logo.jpeg" alt="Krishi Kaya Logo"> <!-- Replace "logo.jpeg" with the path to your logo -->
+        <span>Harvesting Connections Cultivating Growth</span>
+    </header>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi Kaya - Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header, footer { background-color: #4CAF50; color: white; text-align: center; padding: 1em; }
+        nav { display: flex; justify-content: center; align-items: center; }
+        nav a { margin: 0 15px; text-decoration: none; color: white; font-weight: bold; }
+        .content { padding: 20px; text-align: center; }
+        .form-container { display: none; margin: 20px auto; max-width: 300px; padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; }
+        form label { display: block; margin: 15px 0 5px; }
+        form input[type="text"], form input[type="password"], form input[type="email"], form textarea { width: 100%; padding: 10px; margin-bottom: 10px; }
+        form input[type="submit"], button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        .error { color: red; }
+        .images-container { display: flex; overflow-x: auto; margin: 20px 0; }
+        .images-container img { max-height: 200px; margin: 0 10px; }
+        .blogs { text-align: left; max-width: 800px; margin: 20px auto; }
+        .blogs h2, .vision-mission h2 { color: #4CAF50; }
+        .blog { border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px; display: flex; align-items: center; }
+        .blog img { max-width: 150px; margin-right: 20px; }
+        .vision-mission { max-width: 800px; margin: 20px auto; text-align: left; }
+        .vision-mission p { margin: 10px 0; }
+        .contact-info { text-align: center; margin: 20px 0; }
+        .contact-info img { vertical-align: middle; margin-right: 10px; }
+        footer { margin-top: 20px; }
+    </style>
+    <script>
+        function toggleForm(formId) {
+            const form = document.getElementById(formId);
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const id = document.getElementById('login-id').value;
+            const password = document.getElementById('login-password').value;
+            const storedID = localStorage.getItem('landownerID');
+            const storedPassword = localStorage.getItem('landownerPassword');
+
+            if (id === storedID && password === storedPassword) {
+                window.location.href = 'landowner_dashboard.html';
+            } else {
+                document.getElementById('error-message').textContent = 'Invalid ID or password. Please try again.';
+            }
+        }
+
+        function handleContact(event) {
+            event.preventDefault();
+            window.location.href = 'contact_thankyou.html';
+        }
+
+        function handleFeedback(event) {
+            event.preventDefault();
+            window.location.href = 'feedback_thankyou.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Krishi Kaya</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="landowner_registration.html">Landowner Registration</a>
+            <a href="laborer_registration.html">Laborer Registration</a>
+            <a href="machinery_registration.html">Machinery Registration</a>
+	    <a href="admin_registration.html">Admin Registration</a>
+            <a href="admin_login.html">Admin Login</a> <!-- Added Admin Login link -->
+            <button onclick="toggleForm('login-form')">Login</button>
+            <button onclick="toggleForm('contact-form')">Contact Us</button>
+            <a href="feedback_form.html">Feedback</a>
+        </nav>
+    </header>
+  
+        <div class="images-container">
+            <marquee><img src="image1.jpg" alt="Agriculture Image 1">
+            <img src="image2.jpg" alt="Agriculture Image 2">
+            <img src="image3.jpg" alt="Agriculture Image 3">
+            <img src="image4.jpg" alt="Agriculture Image 4"></marquee>
+        </div>
+  <div class="content">
+        <div id="login-form" class="form-container">
+            <form onsubmit="handleLogin(event)">
+                <label for="login-id">ID</label>
+                <input type="text" id="login-id" name="login-id" required>
+
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="login-password" required>
+
+                <input type="submit" value="Login">
+                <p id="error-message" class="error"></p>
+            </form>
+        </div>
+
+        <div id="contact-form" class="form-container">
+            <form onsubmit="handleContact(event)">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="contact-name" required>
+
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" name="contact-email" required>
+
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="contact-message" rows="4" required></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+
+
+        <div class="About Krishi Kaya">
+            <h2>About Krishi Kaya</h2>
+            <p> Krishi Kaya is a pioneering platform dedicated to revolutionizing the agricultural industry through innovative solutions. Founded on the principles of leveraging technology to empower farmers, Krishi Kaya strives to bridge the gap between traditional farming practices and modern advancements. </p>
+</div>
+
+<div class="Our Values">
+            <h2>Our Values</h2>
+            <p> <b>Innovation</b></p>
+<p> Embrace innovation and technological advancements to drive positive change in agriculture. </p>
+  <p> <b>Collaboration</b></p>
+<p>Foster collaboration and partnerships to create a cohesive agricultural community.</p>
+    <p> <b>Sustainability</b></p>
+<p>Champion sustainable farming practices that prioritize environmental stewardship and resilience.</p>
+<p> <b>Empowerment</b></p>
+<p>Empower farmers by providing them with the resources and knowledge to succeed.</p>
+
+</div>
+
+        <div class="vision-mission">
+            <h2>Vision</h2>
+            <p>"To create a thriving agricultural ecosystem where technology and human resources unite to optimize farm operations, boost productivity, and ensure food security for future generations."</p>
+            <h2>Mission</h2>
+            <p>"Our mission is to deliver a user-friendly platform that connects farmers with reliable labor and modern machinery. We strive to enhance operational efficiency, reduce downtime, and promote sustainable farming practices by making essential resources readily accessible to every farmer, regardless of location or scale."</p>
+        </div>
+
+        <div class="blogs">
+            <h2>Latest Blogs</h2>
+            <div class="blog">
+                <img src="blog1.jpg" alt="Blog 1">
+                <div>
+                    <h3>ABC</h3>
+                    <p>Thanks for the support received from krishi kaya team they addressed me with the right path after completely asking about my need. I have availed their tractor service the team have provided me with a detailed checklist that should be followed while using the machine.</p>
+                </div>
+            </div>
+            <div class="blog">
+                <img src="blog2.jpg" alt="Blog 2">
+                <div>
+                    <h3>XYZ</h3>
+                    <p>I would highly recommend this service from krishi kaya to anyone looking for a realistic price. They did a great job by answering questions and making recommendations based on our expectations.</p>
+                </div>
+            </div>
+           
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h2>24/7 In Touch</h2>
+            <p><img id="phone" img src="phone.jpg" alt="Phone Icon"> +91 80000 0000</p>
+            <p><img id="email" img src="email.jpg" alt="Email Icon"> support@krishikaya.in</p>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Krishi Kaya
+    </footer>
+</body>
+</html>
